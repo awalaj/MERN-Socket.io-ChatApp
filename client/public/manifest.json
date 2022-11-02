@@ -1,0 +1,8 @@
+{
+  "short_name": "React App",
+  "name": "Chat Application MONGODB NODEJS SOCKET.io REACT",
+  "start_url": "demo",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
