@@ -9,12 +9,16 @@ router.post('/', async function(req, res){
 
     await userSchema.findOne({ username: data.usernameLogIn }).select("email").select("photoProfile").select("username").select("password").exec(async function(err, result){
         try{
-            const isPasswordValid = await bcryptjs.compare(data.passwordLogIn, result.password)
-            if(isPasswordValid){ 
-                return res.json({ status: 'succes', userId: result._id})
+            if(result){
+                const isPasswordValid = await bcryptjs.compare(data.passwordLogIn, result.password)
+                if(isPasswordValid){ 
+                    return res.json({ status: 'succes', userId: result._id})
+                }
             }
+            
+            if(!result) throw "user not found"
         }catch(err){
-            return res.json({ status: 'error' })
+            return res.json({ status: 'error', message: err })
         }
     })
 })
