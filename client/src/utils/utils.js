@@ -1,4 +1,5 @@
 import { io } from "socket.io-client"
+import Swal from "sweetalert2";
 
 export const userID = localStorage.getItem('userID');
 
@@ -65,3 +66,18 @@ export const formatSendMessage = (timeStamp) => {
         return `${dateSend[2]}/${d.getMonth()}/${dateSend[3]}` // dd/mm/yy
     }
 }
+
+export const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 3000,
+                background: 'transparent',
+                color: '#f56470',
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer)
+                }
+            })
