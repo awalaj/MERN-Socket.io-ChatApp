@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef } from "react"
+import React, {useEffect, useState, useRef, createRef } from "react"
 import SearchContact from "./search-contact"
 import { socket, userID } from "../utils/utils"
 import uuid from "react-uuid"
@@ -17,6 +17,7 @@ const Sidebar = ({ option, onClose, data, loadData }) => {
 
     const photoProfileRef = useRef()
     const navigate = useNavigate();
+    const submitButton = createRef()
 
     // handleInput Text
     const [newName, setNewName] = useState("")
@@ -41,17 +42,11 @@ const Sidebar = ({ option, onClose, data, loadData }) => {
       if(res.status === 'ok'){
         loadData()
       }
-      if(res.status === 'ok' && file){
-        window.location.reload(); 
-      }
     }
 
     const onFileChange = (e) => {
       const file = e.target.files[0]
       setFile(file)
-      if(file){
-        updateProfile()
-      }
       e.target.value = null
     }
 
@@ -60,6 +55,12 @@ const Sidebar = ({ option, onClose, data, loadData }) => {
         setContactList(data)
       }) 
     }, [])
+    
+    useEffect(() => {
+      if(file){
+            submitButton.current.click()
+        }
+    }, [file])
     
     useEffect(() => {
       if(data){
