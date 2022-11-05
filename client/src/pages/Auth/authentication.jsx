@@ -2,11 +2,10 @@ import React, { createRef, useEffect } from "react";
 import { useForm } from "react-hook-form"
 import "./Authentication.css"
 import LoginLog from "../../assets/login.svg"
-import Swal from "sweetalert2";
 import RegisterLog from "../../assets/register.svg"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { socket, userID } from "../../utils/utils"
+import { socket, userID, Toast  } from "../../utils/utils"
 
 const Authentication = ({ user }) => {
     const panel = createRef()
@@ -26,24 +25,10 @@ const Authentication = ({ user }) => {
 
             localStorage.setItem("userID", res.userId)
         }else{
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-end',
-                showConfirmButton: false,
-                showCloseButton: true,
-                timer: 3000,
-                background: 'transparent',
-                color: '#f56470',
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer);
-                    toast.addEventListener("mouseleave", Swal.resumeTimer)
-                }
-            })
-
             Toast.fire({
                 icon: 'error',
                 title: 'login failed',
+                text: res.message
             })
         }
     }
@@ -58,24 +43,10 @@ const Authentication = ({ user }) => {
         if(res.status === "succes") {
             panel.current.classList.remove("sign-up-mode")
         }else{
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-end',
-                showConfirmButton: false,
-                showCloseButton: true,
-                timer: 3000,
-                background: 'transparent',
-                color: '#f56470',
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer);
-                    toast.addEventListener("mouseleave", Swal.resumeTimer)
-                }
-            })
-
             Toast.fire({
                 icon: 'error',
                 title: 'registration failed',
+                text: res.message,
             })
         }
     }
