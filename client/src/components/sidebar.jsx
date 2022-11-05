@@ -138,7 +138,7 @@ const Sidebar = ({ option, onClose, data, loadData }) => {
                                 <Edit onClick={() => setFocus("password")}/>
                               }
                           </div>
-                          <input type="submit" ref={submitButton}/>
+                          <input type="submit" ref={submitButton} style={{ display: "none" }}/>
                       </form>
                     )
                     :
