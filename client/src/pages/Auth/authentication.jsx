@@ -83,10 +83,6 @@ const Authentication = ({ user }) => {
                                 <input type="text" placeholder="username" {...register("usernameRegister")} required/>
                             </div>
                             <div className="input-field">
-                                <i className="fas fa-envelope"></i>
-                                <input type="email" placeholder="Email" {...register("emailRegister")} required/>
-                            </div>
-                            <div className="input-field">
                                 <i className="fas fa-lock"></i>
                                 <input type="password" placeholder="password" {...register("passwordRegister")} required/>
                             </div>
