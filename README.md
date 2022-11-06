@@ -13,8 +13,14 @@ Make sure you have Node.js and MongoDB Installed and various packages needed on 
 5. View in browser at http://localhost:3000
 
 #technology used
+
 📌 React JS
+
 📌 express JS 
+
 📌 nodemailer (send email Verification)
+
 📌 multer (uploading file)
+
 📌 Mongoose (Database)
+
