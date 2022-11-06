@@ -16,7 +16,6 @@ router.post("/", async function(req, res){
            let secretPassword = await bcryptjs.hash(password, 10);
            await PersonSchema.create({
             username: data.usernameRegister,
-            email: data.emailRegister,
             password: secretPassword,
            })
            return res.json({status: 'succes'})
