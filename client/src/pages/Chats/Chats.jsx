@@ -116,8 +116,6 @@ class Chats extends React.Component{
                         { currentChat ? <ChatContainer loadData={this.loadChat} chatRoom={chatRoom} users={usersData.name}/> : <Welcome users={usersData.name}/>}
                     </div> 
     
-                    {/* sidebar addContact */}
-                    {/* { optionMenu && <Sidebar data={usersData} loadData={() => this.loadUser()} option={optionMenu} onClose={this.closeSideBar}/>} */}
                     <Sidebar 
                         data={usersData} 
                         loadData={this.loadUser} 
