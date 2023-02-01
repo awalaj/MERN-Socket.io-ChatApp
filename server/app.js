@@ -16,7 +16,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 app.use(cors());
-mongoose.connect("mongodb://localhost:27017/ChatApp",{ useNewUrlParser: true })
+mongoose.connect("mongodb://127.0.0.1:27017/ChatApp",{ useNewUrlParser: true })
 
 const socket = require("./routes/socket-chat")
 const socketServer = new socket()
