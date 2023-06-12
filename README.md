@@ -7,9 +7,9 @@ Make sure you have Node.js and MongoDB Installed and various packages needed on 
 # Installation 
 
 1. Download the repository
-2. Install npm modules: npm install
-3. Install bower dependencies bower install
-4. start up the server: node app.js
+2. Install modules dependency react => npm install --legacy-peer-deps
+3. install nodemon server
+4. start up the server: node app.js and react JS
 5. View in browser at http://localhost:3000
 
 #technology used
